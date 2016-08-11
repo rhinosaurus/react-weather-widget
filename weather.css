@@ -1,0 +1,37 @@
+.weatherBox {
+	display: inline-block;
+	border-radius: 5px;
+	border: 1px solid grey;
+	box-shadow: 4px 4px 4px #c0c0c0;
+	font-family: sans-serif;
+	padding: 10px;
+	min-width: 310px;
+	min-height: 160px;
+}
+
+.weatherBox h1 {
+	font-size: 20px;
+}
+
+.weatherTemp {
+	font-size: 50px;
+}
+
+.weatherIcon {
+	margin-left: 10px;
+}
+
+.weatherDays div {
+	font-size: 13px;
+	display: inline-block;
+	text-align: center;
+	padding: 5px;
+}
+
+.weatherDays div:nth-child(1) {
+	border: none;
+}
+
+.weatherDays div {
+	border-left: 1px solid grey;
+}
