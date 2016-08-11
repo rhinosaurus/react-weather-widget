@@ -2,6 +2,10 @@ import React from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './weather.css';
 
+// Change location to retrieve weather
+const weatherLocation = 'fairfax, va';
+//const weatherLocation = 'Philadelphia, pa';
+
 class Weather extends React.Component {
 	constructor() {
 		super();
@@ -24,14 +28,14 @@ class Weather extends React.Component {
 				this.update( data );
 			}
 		};
-		xhr.open( 'GET', 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22fairfax%2C%20va%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithke');
+		xhr.open( 'GET', 'https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + weatherLocation + '")&format=json&env=store://datatables.org/alltableswithke' );
 		xhr.send();
 	}
 	componentWillMount() {
 		this.fetchWeather();
 	}
 	render() {
-		let forecastDays = this.state.forecast.map( D => {
+		const forecastDays = this.state.forecast.map( D => {
 			return <DayForecast key={D.date} data={D}/>
 		});
 
